@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Videos</title>
+    <link rel="stylesheet" href="./css/videos.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="circulo_maior">
+           <div class="logo"><a href="./indexprincipal.html"><h1>ESTUD.ai</h1></a></div>
+        </div>
+    </header>
+
+    <main>
+        <div class="card_texto">
+            <h3>Escolha uma matéria e veja vídeos selecionados pela nossa equipe</h3>
+        </div>
+
+        <div class="card_fundo">
+            <div class="cards">
+                <div class="linha1">
+                    <div class="card num1">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-matematica')">Matemática</h2>
+                        <div id="dropdown-matematica" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/mat/estatistica.html">Estatística</a></li>
+                                <li><a href="/videos/mat/geometria_plana.html">Geometria Plana</a></li>
+                                <li><a href="/videos/mat/poligonos.html">Polígonos</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card num2">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-linguagens')">Linguagens</h2>
+                        <div id="dropdown-linguagens" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/port/generos_textuais.html">Gêneros Textuais</a></li>
+                                <li><a href="/videos/port/fnc_linguagem.html">Funções Da Linguagem</a></li>
+                                <li><a href="/videos/port/vari_lingu.html">Variação Linguística</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card num3">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-ingles')">Inglês</h2>
+                        <div id="dropdown-ingles" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/ing/gramatica_ing.html">Gramática</a></li>
+                                <li><a href="/videos/ing/verbo_to_be.html">Verbo To Be</a></li>
+                                <li><a href="/videos/ing/pp_sp.html">Present Perfect e Simple Past</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="linha2">
+                    <div class="card num4">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-quimica')">Química</h2>
+                        <div id="dropdown-quimica" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/qui/qui_org.html">Química Orgânica</a></li>
+                                <li><a href="/videos/qui/qui_ino.html"> Química Inorgânica</a></li>
+                                <li><a href="/videos/qui/elequi.html">Eletroquímica</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card num5">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-fisica')">Física</h2>
+                        <div id="dropdown-fisica" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/fisi/eletrodi.html">Eletrodinâmica</a></li>
+                                <li><a href="/videos/fisi/ondu.html">Ondulatória</a></li>
+                                <li><a href="/videos/fisi/termo.html">Termologia</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card num6">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-biologia')">Biologia</h2>
+                        <div id="dropdown-biologia" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/bio/eco.html">Ecologia</a></li>
+                                <li><a href="/videos/bio/botan.html">Botânica</a></li>
+                                <li><a href="/videos/bio/cito.html">Citologia</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="linha3">
+                    <div class="card num7">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-historia')">História</h2>
+                        <div id="dropdown-historia" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/his/brasil_colo.html">Brasil Colônia</a></li>
+                                <li><a href="/videos/his/idade_med.html">Idade Média</a></li>
+                                <li><a href="/videos/his/vargas.html">Era Vargas</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card num8">
+                        <h2 class="titulo" onclick="toggleDropdown('dropdown-filosofia')">Filosofia</h2>
+                        <div id="dropdown-filosofia" class="dropdown">
+                            <ul>
+                                <li><a href="/videos/filo/etica_moral.html">Ética e Moral</a></li>
+                                <li><a href="/videos/filo/logica_filo.html">Lógica</a></li>
+                                <li><a href="/videos/filo/filo_contem.html">Filosofia Contemporânea</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="card num9">
+                        <h2 class="titulo">+</h2>
+                    </div>
+                </div>
+            </div>
+
+            <img src="./imagem/gato.png" alt="">
+        </div>  
+    </main>
+
+    <script>
+        // Função para alternar a visibilidade do dropdown
+        function toggleDropdown(id) {
+            var dropdown = document.getElementById(id);
+            if (dropdown.style.display === 'block') {
+                dropdown.style.display = 'none';
+            } else {
+                dropdown.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>

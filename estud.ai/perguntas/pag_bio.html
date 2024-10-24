@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas - Biologia</title>
+    <link rel="stylesheet" href="/css/pag_bio.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="titulo_circulo"><a href="/perguntas.html">ESTUD.ai</a></h1>
+        </div>
+    </header>
+    <main>
+        <div class="card_pergunta">
+            <img src="/imagem/img-pag_pergunta.png" alt="">
+            <div class="texto_pergunta">
+                
+                <p class="texto">Instituições acadêmicas e de pesquisa no mundo estão inserindo genes em genomas de plantas que possam codificar produtos de interesse farmacológico. No Brasil, está sendo desenvolvida uma variedade de soja com um viricida ou microbicida capaz de prevenir a contaminação pelo vírus causador da aids. Essa leguminosa está sendo induzida a produzir a enzima cianovirina-N, que tem eficiência comprovada contra o vírus.</p>
+
+                <h5 class="fonte">OLIVEIRA, M. Remédio na planta. Pesquisa Fapesp, n. 206, abr. 2013.</h5>
+
+                <p class="pergunta">A técnica para gerar essa leguminosa é um exemplo de:</p>
+            </div>
+        </div>
+    
+        <form>
+            <div class="radio-group">
+                <input type="radio" id="cor1" name="cor" value="hibridismo" data-correct="false">
+                <label for="cor1"> hibridismo.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor2" name="cor" value="transgenia" data-correct="true">
+                <label for="cor2">transgenia. </label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor3" name="cor" value="conjugacao" data-correct="false">
+                <label for="cor3">conjugação. </label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor4" name="cor" value="melhoramento" data-correct="false">
+                <label for="cor4">melhoramento genético.</label>
+            </div>
+        </form>
+    
+        <div class="container_btn">
+            <a href="/perguntas/pag_fisica2.html"><button class="btn_voltar">Voltar</button></a>
+            <button id="nextButton" class="btn_enviar">Próxima</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questionId = "bio"; // Identificador da seção de biologia
+            const totalQuestions = 16; // Total de perguntas
+            let correctAnswers = parseInt(localStorage.getItem(`${questionId}_correct`)) || 0;
+            let incorrectAnswers = parseInt(localStorage.getItem(`${questionId}_incorrect`)) || 0;
+
+            // Adiciona listeners para detectar a seleção das respostas
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const isCorrect = this.dataset.correct === "true"; // Verifica se a resposta está correta
+
+                    // Atualiza os contadores
+                    if (isCorrect) {
+                        correctAnswers++;
+                    } else {
+                        incorrectAnswers++;
+                    }
+
+                    // Salva as respostas no localStorage
+                    localStorage.setItem(`${questionId}_correct`, correctAnswers);
+                    localStorage.setItem(`${questionId}_incorrect`, incorrectAnswers);
+                });
+            });
+
+            // Função para salvar automaticamente e redirecionar após um timer
+            document.getElementById('nextButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Impede o redirecionamento padrão
+
+                // Salvar as respostas
+                const selectedAnswer = document.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer) {
+                    
+                    // Após 2 segundos, redireciona para a próxima pergunta
+                    setTimeout(function() {
+                        window.location.href = './pag_bio2.html'; // Próxima página
+                    });
+                } else {
+                    alert("Por favor, selecione uma resposta antes de prosseguir.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

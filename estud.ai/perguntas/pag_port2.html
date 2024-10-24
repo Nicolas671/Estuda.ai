@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas - Português</title>
+    <link rel="stylesheet" href="/css/pag_port.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="titulo_circulo"><a href="/perguntas.html">ESTUD.ai</a></h1>
+        </div>
+    </header>
+    <main>
+        <div class="card_pergunta">
+            <img src="/imagem/img-pag_pergunta.png" alt="">
+            <div class="texto_pergunta">
+                <p class="texto">Hino à Bandeira Em teu seio formoso retratas Este céu de puríssimo azul, A verdura sem par destas matas, E o esplendor do Cruzeiro do Sul. Contemplando o teu vulto sagrado, Compreendemos o nosso dever, E o Brasil por seus filhos amado, Poderoso e feliz há de ser! Sobre a imensa Nação Brasileira, Nos momentos de festa ou de dor, Paira sempre sagrada bandeira Pavilhão da justiça e do amor!
+                
+                <h5 class="fonte">BILAC, O.; BRAGA, F. Disponível em: www2.planalto.gov.br. Acesso em: 10 dez. 2017 (fragmento).  </h5>
+
+                <p class="pergunta">No Hino à Bandeira, a descrição é um recurso utilizado para exaltar o símbolo nacional na medida em que?</p>
+            </div>
+        </div>
+    
+        <form>
+            <div class="radio-group">
+                <input type="radio" id="cor1" name="cor" value="vermelho" data-correct="false">
+                <label for="cor1">remete a um momento futuro.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor2" name="cor" value="azul" data-correct="true">
+                <label for="cor2">promove a união dos cidadãos.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor3" name="cor" value="verde" data-correct="false">
+                <label for="cor3">emprega termos religiosos.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor4" name="cor" value="amarelo" data-correct="false">
+                <label for="cor4">recorre à sua história.</label>
+            </div>
+        </form>
+    
+        <div class="container_btn">
+            <a href="/perguntas/pag_port.html"><button class="btn_voltar">Voltar</button></a>
+            <button id="nextButton" class="btn_enviar">Próxima</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questionId = "portugues"; // Identificador da seção de português
+            const totalQuestions = 16; // Total de perguntas
+            let correctAnswers = parseInt(localStorage.getItem(`${questionId}_correct`)) || 0;
+            let incorrectAnswers = parseInt(localStorage.getItem(`${questionId}_incorrect`)) || 0;
+
+            // Adiciona listeners para detectar a seleção das respostas
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const isCorrect = this.dataset.correct === "true"; // Verifica se a resposta está correta
+
+                    // Atualiza os contadores
+                    if (isCorrect) {
+                        correctAnswers++;
+                    } else {
+                        incorrectAnswers++;
+                    }
+
+                    // Salva as respostas no localStorage
+                    localStorage.setItem(`${questionId}_correct`, correctAnswers);
+                    localStorage.setItem(`${questionId}_incorrect`, incorrectAnswers);
+
+                    // Habilita o botão de salvar após a seleção
+                    document.getElementById("saveButton").disabled = false;
+                });
+            });
+
+            // Função para salvar automaticamente e redirecionar após um timer
+            document.getElementById('nextButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Impede o redirecionamento padrão
+
+                // Salvar as respostas
+                const selectedAnswer = document.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer) {
+                 
+                    // Após 2 segundos, redireciona para a próxima pergunta
+                    setTimeout(function() {
+                        window.location.href = '/resultados.html'; // Próxima página
+                    });
+                } else {
+                    alert("Por favor, selecione uma resposta antes de prosseguir.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

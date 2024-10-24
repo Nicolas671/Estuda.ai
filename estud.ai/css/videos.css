@@ -1,0 +1,188 @@
+/* NORMALIZAÇÃO DO CSS */
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+/* HEADER/LOGO */
+html{
+    padding: 20px 0px 20px 30px;
+    background-color: white; 
+}
+
+body{
+    background-color: #33064E;
+    overflow-x: hidden;
+    border-radius: 20px 0px 0px 20px;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+.circulo_maior{
+    background-color: #452273;
+    padding: 15px 15px 0px 15px;
+    border-radius: 60px;
+    margin-left: -130px;
+    position: relative;
+    bottom: 25px;
+}
+  
+h1{
+    background-color: #B256E0;
+    border-radius: 30px;
+    padding: 2px;
+    font-size: 45px;
+    font-weight: 500;
+    font-style: italic;
+}
+  
+.logo{
+    background:#703BB5;
+    margin-bottom: 15px;
+    padding: 10px 10px 0px 10px;
+    border-radius: 45px;
+    position: relative;
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    transition: color 2s;
+}
+  
+.logo a{
+    text-decoration: none;
+    color: white;
+    transition: color 2s;
+}
+
+.logo a:hover{
+    color: #e2a9ff;
+}
+
+/* Main*/
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 575px;
+}
+
+/* Card texto */
+.card_texto{
+    background-color: #67488D;
+    color: white;
+    width: 800px;
+    padding: 65px 100px 65px 100px;
+    position: relative;
+    bottom: 15px;
+}
+
+.card_texto h3{
+    font-weight: 300;
+    font-style: italic;
+}
+
+/* Card fundo */
+.card_fundo{
+    background: linear-gradient(#944FEC, #7B42C5,#542D86);
+    position: absolute;
+    top: 315px;
+    height: 300px;
+    width: 90%;
+    left: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid black;
+}
+
+/* Cards */
+
+.cards{
+    display: grid;
+    background-color: #944EEC;
+    width: 800px;
+    position: absolute;
+    left: 180px;
+    height: 350px;
+    padding: 10px 5px 10px 5px;
+}
+
+.card{
+    padding: 30px;
+    width: 250px;
+    text-align: center;
+    position: relative;
+}
+
+.card h2{
+    color: white;
+    font-style: italic;
+}
+
+.num1, .num2, .num3{
+    background-color: #542C86;
+    cursor: pointer;
+}
+
+.num4, .num5, .num6{
+    background-color: #723DB6;
+    cursor: pointer;
+}
+
+.num7, .num8, .num9{
+    background-color: #A05EF3;
+    cursor: pointer;
+}
+
+.linha1, .linha2, .linha3{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card_fundo img{
+    z-index: 2;
+    width: 325px;
+    position: relative;
+    left: 450px;
+    top: 50px;
+}
+
+/* Dropdown Estilo */
+.dropdown {
+    display: none;
+    width: 230px;
+    background-color: rgba(236, 194, 255, 0.9);
+    position: absolute;
+    top: 60px;
+    left: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    z-index: 10;
+}
+
+.dropdown ul {
+    list-style: none;
+    padding: 0;
+}
+
+.dropdown li {
+    padding: 5px 0;
+}
+
+.dropdown li a{
+    text-decoration: none;
+    color: black;
+    transition: color 1s;
+}
+
+.dropdown li a:hover{
+    color: #7300ff;
+}

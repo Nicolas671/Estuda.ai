@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas - Física</title>
+    <link rel="stylesheet" href="/css/pag_fisica.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="titulo_circulo"><a href="/perguntas.html">ESTUD.ai</a></h1>
+        </div>
+    </header>
+    <main>
+        <div class="card_pergunta">
+            <img src="/imagem/img-pag_pergunta.png" alt="">
+            <div class="texto_pergunta">
+                <p class="texto">Em uma sala escura há um ponto luminoso, a mais de 3 metros de distância de uma parede, e um disco pendurado, paralelo à parede, entre ela e o ponto luminoso. O disco encontra-se a 1 metro de distância do ponto luminoso, projetando uma sombra S1 , em formato de círculo, na parede. Esse disco é afastado mais 2 m do ponto luminoso, em direção à sombra e sem encostar na parede, projetando outra sombra S2, também no formato de um círculo.</p>
+                <br>
+                <p class="pergunta">Sejam A1 a área de S1 e A2 a área de S2 .O valor de A1 / A2 é:</p>
+            </div>
+        </div>
+    
+        <form>
+            <div class="radio-group">
+                <input type="radio" id="cor1" name="cor" value="vermelho" data-correct="false">
+                <label for="cor1">1</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor2" name="cor" value="azul" data-correct="true">
+                <label for="cor2">2</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor3" name="cor" value="verde" data-correct="false">
+                <label for="cor3">5</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor4" name="cor" value="amarelo" data-correct="false">
+                <label for="cor4">9</label>
+            </div>
+        </form>
+    
+        <div class="container_btn">
+            <a href="/perguntas/pag_fisica.html"><button class="btn_voltar">Voltar</button></a>
+            <button id="nextButton" class="btn_enviar">Próxima</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questionId = "fisica"; // Identificador da seção de física
+            const totalQuestions = 16; // Total de perguntas
+            let correctAnswers = parseInt(localStorage.getItem(`${questionId}_correct`)) || 0;
+            let incorrectAnswers = parseInt(localStorage.getItem(`${questionId}_incorrect`)) || 0;
+
+            // Adiciona listeners para detectar a seleção das respostas
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const isCorrect = this.dataset.correct === "true"; // Verifica se a resposta está correta
+
+                    // Atualiza os contadores
+                    if (isCorrect) {
+                        correctAnswers++;
+                    } else {
+                        incorrectAnswers++;
+                    }
+
+                    // Salva as respostas no localStorage
+                    localStorage.setItem(`${questionId}_correct`, correctAnswers);
+                    localStorage.setItem(`${questionId}_incorrect`, incorrectAnswers);
+
+                    // Habilita o botão de salvar após a seleção
+                    document.getElementById("saveButton").disabled = false;
+                });
+            });
+
+            // Função para salvar automaticamente e redirecionar após um timer
+            document.getElementById('nextButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Impede o redirecionamento padrão
+
+                // Salvar as respostas
+                const selectedAnswer = document.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer) {
+                   
+
+                    // Após 2 segundos, redireciona para a próxima pergunta
+                    setTimeout(function() {
+                        window.location.href = './pag_bio.html'; // Próxima página
+                    });
+                } else {
+                    alert("Por favor, selecione uma resposta antes de prosseguir.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>
+

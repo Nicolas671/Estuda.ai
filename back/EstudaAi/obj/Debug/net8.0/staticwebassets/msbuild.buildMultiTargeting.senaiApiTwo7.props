@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\senaiApiTwo7.props" />
+</Project>

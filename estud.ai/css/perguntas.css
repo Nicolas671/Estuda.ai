@@ -1,0 +1,362 @@
+@import url('https://fonts.googleapis.com/css2?family=Vujahday+Script&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+    font-style: italic;
+}
+
+html{
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header{
+    display: flex;
+    justify-content: center;
+    margin: 10px 0px 20px 0px;
+}
+
+.logo{
+    background:#73B78E;
+    margin-bottom: 15px;
+    padding: 10px 9px 10px 9px;
+    border-radius: 43px;
+    position: static;
+    width: 80px;
+    cursor: pointer;
+    margin-left: -130px;
+    transition: color 2s;
+}
+
+.logo a{
+    text-decoration: none;
+    color: black;
+    transition: color 2s;
+    font-weight: 300;
+}
+
+.logo a:hover{
+    color: #547e65;
+}
+
+h1{
+    background-color: white;
+    border-radius: 30px;
+    font-size: 45px;
+    color: black;
+}
+
+/* CARD PRINCIPAL */
+.card-principal{
+    width: 500px;
+    height: 370px;
+    position: absolute;
+    border: 1px solid black;
+    border-radius: 20px;
+    padding: 10px 20px 90px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    z-index: 12;
+    background-color: white;
+    box-shadow: black 2px 2px 10px 0px;
+}
+
+.titulo_card{
+    font-family: "Vujahday Script", cursive;
+    font-weight: 500;
+    font-size: 40px;
+    font-style: normal;
+}
+
+.subtitulo_card{
+    font-family: "Vujahday Script", cursive;
+    font-weight: 600;
+    font-size: 20px;
+    font-style: normal;
+    color: yellow;
+}
+
+.texto_card{
+    margin-top: 50px;
+    font-size: 15px;
+    font-weight: 500;
+}
+
+.card-principal img{
+    width: 200px;
+}
+
+/* CARDS */
+
+.card{
+    width: 300px;
+    height: 150px;
+    border: 2px solid black;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    cursor: pointer;
+    transition: border-radius 1.5s;
+}
+
+.card:hover{
+    border-radius: 30px;
+    border: outset black 2px;
+    
+    h2{
+        font-style:oblique;
+    }
+}
+
+.bolinha_card{
+    padding: 10px;
+    border-radius: 50px;
+    width: 70px;
+    height: 70px;
+    border: 2px solid black;
+    position:absolute;
+}
+
+main a{
+    text-decoration: none;
+    color: white;
+}
+
+.card h2{
+    position: absolute;
+}
+
+/* CARD MATEMATICA */
+.card.mat h2{
+    top: 60px;
+    right: 63px;
+}
+
+.card.mat{
+    background-color: #2EBB9A;
+    right: 550px;
+}
+
+.bolinha_card.mat{
+    background-color: white;
+    left: 115px;
+    top: -40px;
+    z-index: 3;
+    border: 0px;
+    border-bottom: solid black 2px;
+}
+
+/* CARD FÍSICA */
+
+.card.fis{
+    background-color: #2E75BB;
+    top: 50px;
+    right: 450px;
+}
+
+.bolinha_card.fis{
+    background-color: white;
+    left: 115px;
+    bottom: -40px;
+    z-index: 3;
+    border: none;
+    border-top: black solid 2px;
+}
+
+.bolinha_card.fis2{
+    background-color: white;
+    left: 115px;
+    bottom: 115px;
+    z-index: 3;
+    border: none;
+    border-bottom: solid black 2px;
+}
+
+.card.fis h2{
+    top: 60px;
+    right: 105px;
+}
+
+/* CARD BIOLOGIA */
+
+.card.bio{
+    background-color: #3A2EBB;
+    right: 550px;
+    top: 90px;
+}
+
+.card.bio h2{
+    top: 60px;
+    right: 93px;
+}
+
+.bolinha_card.bio{
+    background-color: white;
+    left: 260px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-left: black solid 2px;
+}
+
+/* CARD QUIMICA */
+
+.card.qui{
+    background-color: #2EBB83;
+    bottom: 60px;
+    right: 180px;
+}
+
+.card.qui h2{
+    top: 60px;
+    right: 100px;
+}
+
+.bolinha_card.qui{
+    background-color: #2EBB83;
+    left: -31px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-left: black solid 2px;
+}
+
+.bolinha_card.qui2{
+    background-color: #2EBB83;
+    left: 110px;
+    bottom: -31px;
+    z-index: 3;
+    border: none;
+    border-bottom: black solid 2px;
+}
+
+.bolinha_card.qui3{
+    background-color: white;
+    left: 265px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-left: black solid 2px;
+}
+
+/* CARD FILOSOFIA */
+.card.filo{
+    background-color: #B249D7;
+    bottom: 210px;
+    left: 180px;
+}
+
+.card.filo h2{
+    top: 58px;
+    right: 80px;
+}
+
+.bolinha_card.filo{
+    background-color: white;
+    left: 260px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-left: black solid 2px;
+}
+
+.bolinha_card.filo2{
+    background-color: white;
+    left: -31px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-right: black solid 2px;
+}
+
+/* CARD HISTORIA */
+.card.his{
+    background-color: #356E64;
+    bottom: 360px;
+    left: 550px;
+}
+
+.card.his h2{
+    top: 60px;
+    right: 85px;
+}
+
+.bolinha_card.his{
+    background-color: #356E64;
+    left: -31px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-left: black solid 2px;
+}
+
+/* CARD INGLÊS */
+.card.ing{
+    background-color: #8C5DC9;
+    bottom: 700px;
+    left: 450px;
+}
+
+.card.ing h2{
+    top: 60px;
+    right: 108px;
+}
+
+.bolinha_card.ing{
+    background-color: #8C5DC9;
+    left: 110px;
+    top: -31px;
+    z-index: 3;
+    border: none;
+    border-top: black solid 2px;
+}
+
+.bolinha_card.ing2{
+    background-color: white;
+    left: 260px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-left: black solid 2px;
+}
+
+/* CARD PORTUGUÊS */
+.card.port{
+    background-color: #54278E;
+    bottom: 1050px;
+    left: 550px;
+}
+
+.card.port h2{
+    top: 55px;
+    right: 65px;
+}
+
+.bolinha_card.port{
+    background-color: white;
+    left: 120px;
+    top: 115px;
+    z-index: 3;
+    border: none;
+    border-top: black solid 2px;
+}
+
+.bolinha_card.port2{
+    background-color: white;
+    left: -40px;
+    bottom: 40px;
+    z-index: 3;
+    border: none;
+    border-right: black solid 2px;
+}

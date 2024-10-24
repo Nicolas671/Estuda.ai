@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas - História</title>
+    <link rel="stylesheet" href="/css/pag_his.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="titulo_circulo"><a href="/perguntas.html">ESTUD.ai</a></h1>
+        </div>
+    </header>
+    <main>
+        <div class="card_pergunta">
+            <img src="/imagem/img-pag_pergunta.png" alt="">
+            <div class="texto_pergunta">
+                <p class="texto-2">Antes de Roma ser fundada, as colinas de Alba eram ocupadas por tribos latinas, que dividiam o ano de acordo com seus deuses. Os romanos adaptaram essa estrutura. No princípio dessa civilização o ano tinha dez meses e começava por Martius (atual março). Os outros dois teriam sido acrescentados por Numa Pompílio, o segundo rei de Roma. Até Júlio César reformar o calendário local, os meses eram lunares, mas as festas em homenagem aos deuses permaneciam designadas pelas estações. O descompasso de dez dias por ano fazia com que, em todos os triênios, um décimo terceiro mês, o Intercalaris, tivesse que ser enxertado. Com a ajuda de matemáticos do Egito emprestados por Cleópatra, Júlio César acabou com a bagunça ao estabelecer o seguinte calendário solar: Januarius, Februarius, Martius, Aprilis, Maius, Junius, Quinctilis, Sextilis, September, October, November e December. Quase igual ao nosso, com as diferenças de que Quinctilis e Sextilis deram origem aos meses de julho e agosto.</p>
+                
+                <h5 class="fonte">Disponível em: https://aventurasnahistoria.uol.com.br. Acesso em: 8 dez. 2018.</h5>
+
+                <p class="pergunta">Considerando as informações no texto e aspectos históricos da formação da língua, a atual escrita dos meses do ano em português.</p>
+            </div>
+        </div>
+    
+        <form>
+            <div class="radio-group">
+                <input type="radio" id="cor1" name="cor" value="vermelho" data-correct="true">
+                <label for="cor1">reflete a origem latina de nossa língua.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor2" name="cor" value="azul" data-correct="false">
+                <label for="cor2">decorre de uma língua falada no Egito antigo.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor3" name="cor" value="verde" data-correct="false">
+                <label for="cor3">tem como base um calendário criado por Cleópatra.</label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor4" name="cor" value="amarelo" data-correct="false">
+                <label for="cor4">segue a reformulação da norma da língua proposta por Júlio César.</label>
+            </div>
+        </form>
+    
+        <div class="container_btn">
+            <a href="/perguntas/pag_his.html"><button class="btn_voltar">Voltar</button></a>
+            <button id="nextButton" class="btn_enviar">Próxima</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questionId = "historia"; // Identificador da seção de história
+            const totalQuestions = 16; // Total de perguntas
+            let correctAnswers = parseInt(localStorage.getItem(`${questionId}_correct`)) || 0;
+            let incorrectAnswers = parseInt(localStorage.getItem(`${questionId}_incorrect`)) || 0;
+
+            // Adiciona listeners para detectar a seleção das respostas
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const isCorrect = this.dataset.correct === "true"; // Verifica se a resposta está correta
+
+                    // Atualiza os contadores
+                    if (isCorrect) {
+                        correctAnswers++;
+                    } else {
+                        incorrectAnswers++;
+                    }
+
+                    // Salva as respostas no localStorage
+                    localStorage.setItem(`${questionId}_correct`, correctAnswers);
+                    localStorage.setItem(`${questionId}_incorrect`, incorrectAnswers);
+
+                    // Habilita o botão de salvar após a seleção
+                    document.getElementById("saveButton").disabled = false;
+                });
+            });
+
+            // Função para salvar automaticamente e redirecionar após um timer
+            document.getElementById('nextButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Impede o redirecionamento padrão
+
+                // Salvar as respostas
+                const selectedAnswer = document.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer) {
+
+                    // Após 2 segundos, redireciona para a próxima pergunta
+                    setTimeout(function() {
+                        window.location.href = './pag_ing.html'; // Próxima página
+                    });
+                } else {
+                    alert("Por favor, selecione uma resposta antes de prosseguir.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

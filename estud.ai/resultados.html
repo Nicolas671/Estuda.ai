@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados</title>
+    <link rel="stylesheet" href="/css/resultados.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="titulo_circulo"><a href="./indexprincipal.html">ESTUD.ai</a></h1>
+        </div>
+    </header>
+    <main>
+        <div class="card_topo">
+            <p class="acertos">Total de acertos:<span id="total_correct">0</span> de 16</p>
+            <p class="porcen_acertos">Porcentagem de acertos: <span id="accuracy_percentage">0%</span></p>
+
+            <div class="card_redes">
+                <div class="card_redes2">
+                    <img src="/imagem/redes_sociais.png" alt="">
+                </div>
+            </div>
+
+            <div class="container_redes_sociais">
+                <div class="card_redes_sociais">
+                    <img src="/imagem/insta_icone.png" alt="">
+                    <a href="https://www.instagram.com/estuda.a1/"><h2>@estud.ai_</h2></a>
+                </div>
+                <p>Nos siga no Instagram</p>
+            </div>
+
+
+            <div class="card_topo-baixo">
+                <img src="/imagem/img_topo-resultado.png" alt="">
+
+                <p>Veja a media de<br>acertos em cada<br>materia!<br><br>Um grafico será gerado.</p>
+                <div class="grafico">
+                    <div class="barra num1"></div>
+                    <div class="barra num2"></div>
+                    <div class="barra num3"></div>
+                    <div class="barra num4"></div>
+                    <div class="barra num5"></div>
+                    <div class="barra num6"></div>
+                    <div class="barra num7"></div>
+                    <div class="barra num8"></div>
+                    <div class="barra num9"></div>
+                    <div class="barra num10"></div>
+                    <div class="barra num11"></div>
+                </div>
+            </div>
+        </div>
+       
+        <!-- Botão para reiniciar a tentativa -->
+        <button id="resetButton">Zerar Tentativa</button>
+
+        <div class="card_meio">
+            <img src="/imagem/imagem-meio1.png" alt="">
+
+            <p>Com estuda.ai você<br>tem uma vasta<br>quantidade de<br>informações sobre seu<br>desempenho</p>
+
+            <img src="/imagem/imagem-meio2.png" alt="">
+
+            <p>Veja quais são<br>pontos seus fortes <br> e baixos</p>
+
+            <img src="/imagem/imagem-meio3.png" alt="">
+        </div>
+
+        <div class="card_baixo">
+            <div class="card_img">
+                <img src="/imagem/img_baixo-resultado.png" alt="">
+            </div>
+
+            <div class="card_acesso_tabela">
+                <h2>Confira seus<br>resultados por<br>materia</h2>
+                <div class="circulo">
+                </div>
+            </div>
+
+            <div class="card_videos">
+                <a href="/videos.html"><h2>Veja video<br>aulas</h2></a>
+            </div>
+        </div>
+        <a href="/resultado-tabela.html" class="link"></a>
+
+    </main>
+    
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const totalQuestions = 16;
+            let totalCorrect = 0;
+
+            // Matérias que possuem as respostas armazenadas no localStorage
+            const subjects = [
+                "mathematics",
+                "portugues",
+                "quimica",
+                "bio",
+                "edf",
+                "filo",
+                "his",
+                "fisica",
+                "english"
+            ];
+
+            // Itera sobre cada matéria para somar os acertos
+            subjects.forEach(subject => {
+                const correctAnswers = parseInt(localStorage.getItem(`${subject}_correct`)) || 0;
+                totalCorrect += correctAnswers;
+            });
+
+            // Atualiza o total de acertos
+            document.getElementById("total_correct").textContent = totalCorrect;
+
+            // Calcula a porcentagem de acertos
+            const accuracyPercentage = ((totalCorrect / totalQuestions) * 100).toFixed(2);
+            document.getElementById("accuracy_percentage").textContent = `${accuracyPercentage}%`;
+
+            // Função para zerar o localStorage e reiniciar a tentativa
+            document.getElementById('resetButton').addEventListener('click', function() {
+                if (confirm("Tem certeza que deseja zerar os resultados e começar de novo?")) {
+                    localStorage.clear(); // Limpa todo o localStorage
+                    location.reload(); // Recarrega a página para refletir as mudanças
+                }
+            });
+        });
+    </script>
+</body>
+</html>

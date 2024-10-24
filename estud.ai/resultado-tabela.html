@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Tabela</title>
+    <link rel="stylesheet" href="/css/resultado-tabela.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="titulo_circulo"><a href="./indexprincipal.html">ESTUD.ai</a></h1>
+        </div>
+    </header>
+    <main>
+        <table>
+            <thead>
+                <tr>
+                    <th>Matéria</th>
+                    <th>Acertos</th>
+                    <th>Erros</th>
+                    <th>Total de Perguntas</th>
+                    <th>Desempenho</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Matemática</td>
+                    <td id="mathematics_correct">0</td>
+                    <td id="mathematics_incorrect">0</td>
+                    <td id="mathematics_total">2</td>
+                    <td id="mathematics_performance">0%</td>
+                </tr>
+                <tr>
+                    <td>Português</td>
+                    <td id="portugues_correct">0</td>
+                    <td id="portugues_incorrect">0</td>
+                    <td id="portugues_total">2</td>
+                    <td id="portugues_performance">0%</td>
+                </tr>
+                <tr>
+                    <td>Química</td>
+                    <td id="quimica_correct">0</td>
+                    <td id="quimica_incorrect">0</td>
+                    <td id="quimica_total">2</td>
+                    <td id="quimica_performance">0%</td>
+                </tr>
+                <tr>
+                    <td>Biologia</td>
+                    <td id="bio_correct">0</td>
+                    <td id="bio_incorrect">0</td>
+                    <td id="bio_total">2</td>
+                    <td id="bio_performance">0%</td>
+                </tr>
+                <tr>
+                    <td>Filosofia</td>
+                    <td id="filo_correct">0</td>
+                    <td id="filo_incorrect">0</td>
+                    <td id="filo_total">2</td>
+                    <td id="filo_performance">0%</td>
+                </tr>
+                <tr>
+                    <td>História</td>
+                    <td id="his_correct">0</td>
+                    <td id="his_incorrect">0</td>
+                    <td id="his_total">2</td>
+                    <td id="his_performance">0%</td>
+                </tr>
+                <tr>
+                    <td>Física</td>
+                    <td id="fisica_correct">0</td>
+                    <td id="fisica_incorrect">0</td>
+                    <td id="fisica_total">2</td>
+                    <td id="fisica_performance">0%</td>
+                </tr>
+                <tr>
+                    <td>Inglês</td>
+                    <td id="english_correct">0</td>
+                    <td id="english_incorrect">0</td>
+                    <td id="english_total">2</td>
+                    <td id="english_performance">0%</td>
+                </tr>
+            </tbody>
+        </table>
+        <div class="container_btn">
+            <a href="/resultados.html"><button class="btn_zerar">Voltar</button></a>
+
+            <button id="resetButton" class="btn_zerar">Zerar Tentativa</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const subjects = [
+                { id: "mathematics", total: 2 },
+                { id: "portugues", total: 2 },
+                { id: "quimica", total: 2 },
+                { id: "bio", total: 2 },
+                { id: "filo", total: 2 },
+                { id: "his", total: 2 },
+                { id: "fisica", total: 2 },
+                { id: "english", total: 2 },
+            ];
+
+            subjects.forEach(subject => {
+                const correctAnswers = parseInt(localStorage.getItem(`${subject.id}_correct`)) || 0;
+                const incorrectAnswers = parseInt(localStorage.getItem(`${subject.id}_incorrect`)) || 0;
+                const totalQuestions = subject.total;
+
+                // Atualiza a tabela
+                document.getElementById(`${subject.id}_correct`).textContent = correctAnswers;
+                document.getElementById(`${subject.id}_incorrect`).textContent = incorrectAnswers;
+                document.getElementById(`${subject.id}_total`).textContent = totalQuestions;
+
+                // Calcula o desempenho
+                const performance = ((correctAnswers / totalQuestions) * 100).toFixed(2);
+                document.getElementById(`${subject.id}_performance`).textContent = `${performance}%`;
+            });
+
+            // Função para zerar o localStorage e reiniciar a tentativa
+            document.getElementById('resetButton').addEventListener('click', function() {
+                if (confirm("Tem certeza que deseja zerar os resultados e começar de novo?")) {
+                    localStorage.clear(); // Limpa todo o localStorage
+                    location.reload(); // Recarrega a página
+                }
+            });
+        });
+    </script>
+</body>
+</html>

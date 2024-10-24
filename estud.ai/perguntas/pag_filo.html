@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Perguntas - Filosofia</title>
+    <link rel="stylesheet" href="/css/pag_filo.css">
+    <link rel="shortcut icon" type="imagex/png" href="/imagem/gato.png">
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <h1 class="titulo_circulo"><a href="/perguntas.html">ESTUD.ai</a></h1>
+        </div>
+    </header>
+    <main>
+        <div class="card_pergunta">
+            <img src="/imagem/img-pag_pergunta.png" alt="">
+            <div class="texto_pergunta">
+                <p class="texto">A partir da década de 1980, o voleibol começa a ser visto como um ótimo meio de comercialização de produtos esportivos. Esse fenômeno apresenta uma vertiginosa escalada na década de 1990, e a Federação Internacional de Voleibol, tendo o mexicano Rubem Acosta na presidência, vê-se com a obrigação de alterar algumas regras para a melhoria do voleibol como espetáculo, já que a alta performance alcançada pelas equipes vinha tornando enfadonhas as competições. 
+                <h5 class="fonte">SANTOS NETO, S. C. A evolução das regras visando ao espetáculo no voleibol. Disponível em: www.efdeportes.com. Acesso em: 3 ago. 2012 (adaptado).</h5> 
+                <p class="pergunta">Uma das principais mudanças nas regras do voleibol, decorrentes do processo identificado no texto, refere-se à:</p> 
+                </p>
+            </div>
+        </div>
+    
+        <form>
+            <div class="radio-group">
+                <input type="radio" id="cor1" name="cor" value="restricao" data-correct="false">
+                <label for="cor1">restrição para que a bola possa ser tocada apenas pelas partes do corpo acima da cintura, imprimindo maior dinamicidade ao jogo. </label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor2" name="cor" value="modificacao" data-correct="true">
+                <label for="cor2">modificação na contagem de pontos, com o fim do sistema de vantagem, tornando as partidas mais interessantes para as transmissões televisivas. </label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor3" name="cor" value="destinacao" data-correct="false">
+                <label for="cor3">destinação de um espaço restrito e predefinido para a realização do saque, permitindo um maior índice de acertos nesse fundamento do jogo.  
+                </label>
+            </div>
+            <div class="radio-group">
+                <input type="radio" id="cor4" name="cor" value="indicacao" data-correct="false">
+                <label for="cor4">indicação de que contatos simultâneos sejam considerados como toque apenas, permitindo maior permanência da bola em disputa.</label>
+            </div>
+        </form>
+    
+        <div class="container_btn">
+            <a href="/perguntas/pag_qui2.html"><button class="btn_voltar">Voltar</button></a>
+            <button id="nextButton" class="btn_enviar">Próxima</button>
+        </div>
+    </main>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const questionId = "filo"; // Identificador da seção de filosofia
+            const totalQuestions = 16; // Total de perguntas
+            let correctAnswers = parseInt(localStorage.getItem(`${questionId}_correct`)) || 0;
+            let incorrectAnswers = parseInt(localStorage.getItem(`${questionId}_incorrect`)) || 0;
+
+            // Adiciona listeners para detectar a seleção das respostas
+            document.querySelectorAll('input[type="radio"]').forEach(radio => {
+                radio.addEventListener('change', function() {
+                    const isCorrect = this.dataset.correct === "true"; // Verifica se a resposta está correta
+
+                    // Atualiza os contadores
+                    if (isCorrect) {
+                        correctAnswers++;
+                    } else {
+                        incorrectAnswers++;
+                    }
+
+                    // Salva as respostas no localStorage
+                    localStorage.setItem(`${questionId}_correct`, correctAnswers);
+                    localStorage.setItem(`${questionId}_incorrect`, incorrectAnswers);
+
+                    // Habilita o botão de salvar após a seleção
+                    document.getElementById("saveButton").disabled = false;
+                });
+            });
+
+            // Função para salvar automaticamente e redirecionar após um timer
+            document.getElementById('nextButton').addEventListener('click', function(event) {
+                event.preventDefault(); // Impede o redirecionamento padrão
+
+                // Salvar as respostas
+                const selectedAnswer = document.querySelector('input[type="radio"]:checked');
+                if (selectedAnswer) {
+                    
+
+                    // Após 2 segundos, redireciona para a próxima pergunta
+                    setTimeout(function() {
+                        window.location.href = './pag_filo2.html'; // Próxima página
+                    });
+                } else {
+                    alert("Por favor, selecione uma resposta antes de prosseguir.");
+                }
+            });
+        });
+    </script>
+</body>
+</html>

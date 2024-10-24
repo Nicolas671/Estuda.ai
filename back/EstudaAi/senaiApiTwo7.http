@@ -1,0 +1,7 @@
+@senaiApiTwo7_HostAddress = http://localhost:5201
+
+GET {{senaiApiTwo7_HostAddress}}/weatherforecast/
+Accept: application/json
+
+
+###
